@@ -8,6 +8,7 @@ import (
 )
 
 // IngressRouteSpec defines the desired state of IngressRoute.
+// +k8s:openapi-gen=true
 type IngressRouteSpec struct {
 	// Routes defines the list of routes.
 	Routes []Route `json:"routes"`
@@ -22,6 +23,7 @@ type IngressRouteSpec struct {
 }
 
 // Route holds the HTTP route configuration.
+// +k8s:openapi-gen=true
 type Route struct {
 	// Match defines the router's rule.
 	// More info: https://doc.traefik.io/traefik/v2.11/routing/routers/#rule
@@ -43,6 +45,7 @@ type Route struct {
 
 // TLS holds the TLS configuration.
 // More info: https://doc.traefik.io/traefik/v2.11/routing/routers/#tls
+// +k8s:openapi-gen=true
 type TLS struct {
 	// SecretName is the name of the referenced Kubernetes Secret to specify the certificate details.
 	SecretName string `json:"secretName,omitempty"`
@@ -63,6 +66,7 @@ type TLS struct {
 }
 
 // TLSOptionRef is a reference to a TLSOption resource.
+// +k8s:openapi-gen=true
 type TLSOptionRef struct {
 	// Name defines the name of the referenced TLSOption.
 	// More info: https://doc.traefik.io/traefik/v2.11/routing/providers/kubernetes-crd/#kind-tlsoption
@@ -73,6 +77,7 @@ type TLSOptionRef struct {
 }
 
 // TLSStoreRef is a reference to a TLSStore resource.
+// +k8s:openapi-gen=true
 type TLSStoreRef struct {
 	// Name defines the name of the referenced TLSStore.
 	// More info: https://doc.traefik.io/traefik/v2.11/routing/providers/kubernetes-crd/#kind-tlsstore
@@ -85,6 +90,7 @@ type TLSStoreRef struct {
 // LoadBalancerSpec defines the desired state of LoadBalancer.
 // It can reference either a Kubernetes Service object (a load-balancer of servers),
 // or a TraefikService object (a load-balancer of Traefik services).
+// +k8s:openapi-gen=true
 type LoadBalancerSpec struct {
 	// Name defines the name of the referenced Kubernetes Service or TraefikService.
 	// The differentiation between the two is specified in the Kind field.
@@ -126,11 +132,13 @@ type LoadBalancerSpec struct {
 }
 
 // Service defines an upstream HTTP service to proxy traffic to.
+// +k8s:openapi-gen=true
 type Service struct {
 	LoadBalancerSpec `json:",inline"`
 }
 
 // MiddlewareRef is a reference to a Middleware resource.
+// +k8s:openapi-gen=true
 type MiddlewareRef struct {
 	// Name defines the name of the referenced Middleware resource.
 	Name string `json:"name"`
@@ -143,6 +151,7 @@ type MiddlewareRef struct {
 // +kubebuilder:storageversion
 
 // IngressRoute is the CRD implementation of a Traefik HTTP Router.
+// +k8s:openapi-gen=true
 type IngressRoute struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object's metadata.
@@ -155,6 +164,7 @@ type IngressRoute struct {
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 
 // IngressRouteList is a collection of IngressRoute.
+// +k8s:openapi-gen=true
 type IngressRouteList struct {
 	metav1.TypeMeta `json:",inline"`
 	// Standard object's metadata.
