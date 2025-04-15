@@ -7,6 +7,7 @@ import (
 // +k8s:deepcopy-gen=true
 
 // Domain holds a domain name with SANs.
+// +k8s:openapi-gen=true
 type Domain struct {
 	// Main defines the main domain name.
 	Main string `description:"Default subject name." json:"main,omitempty" toml:"main,omitempty" yaml:"main,omitempty"`

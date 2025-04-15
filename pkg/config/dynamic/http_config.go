@@ -124,6 +124,7 @@ func (w *WRRService) SetDefaults() {
 // +k8s:deepcopy-gen=true
 
 // Sticky holds the sticky configuration.
+// +k8s:openapi-gen=true
 type Sticky struct {
 	// Cookie defines the sticky cookie configuration.
 	Cookie *Cookie `json:"cookie,omitempty" toml:"cookie,omitempty" yaml:"cookie,omitempty" label:"allowEmpty" file:"allowEmpty" kv:"allowEmpty" export:"true"`
@@ -132,6 +133,7 @@ type Sticky struct {
 // +k8s:deepcopy-gen=true
 
 // Cookie holds the sticky configuration based on cookie.
+// +k8s:openapi-gen=true
 type Cookie struct {
 	// Name defines the Cookie name.
 	Name string `json:"name,omitempty" toml:"name,omitempty" yaml:"name,omitempty" export:"true"`
