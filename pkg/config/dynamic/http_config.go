@@ -186,6 +186,7 @@ func (l *ServersLoadBalancer) SetDefaults() {
 // +k8s:deepcopy-gen=true
 
 // ResponseForwarding holds the response forwarding configuration.
+// +k8s:openapi-gen=true
 type ResponseForwarding struct {
 	// FlushInterval defines the interval, in milliseconds, in between flushes to the client while copying the response body.
 	// A negative value means to flush immediately after each write to the client.
